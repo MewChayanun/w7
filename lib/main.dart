@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:w7/api_page.dart';
+import 'package:w7/detail_page.dart';
+import 'package:w7/my_listpage.dart';
 import 'welcome_page.dart';
 
 void main() {
@@ -19,6 +21,10 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => const WelcomePage(),
         '/about': (context) => const AboutPage(),
         '/api': (context) => const ApiPage(),
+        '/detail': (context) => const DetailPage(
+              productId: 1,
+            ),
+        '/mylist': (context) => const MyListPage(),
       },
     );
   }
@@ -55,6 +61,18 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, '/api');
               },
               child: const Text('Go to Api Page'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/detail');
+              },
+              child: const Text('Go to Detail Page'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/mylist');
+              },
+              child: const Text('Go to Mylist Page'),
             ),
           ],
         ),
